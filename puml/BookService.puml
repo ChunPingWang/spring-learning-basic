@@ -1,0 +1,24 @@
+@startuml
+class BookService {
+    - BookDao bookDao
+    + BookService(BookDao bookDao)
+    + void saleBook(BookEntity book)
+    + List<BookEntity> listAllBook()
+}
+
+class BookDao {
+    - BookEntity book
+    - List<BookEntity> list
+    + void addBook(BookEntity book)
+    + List<BookEntity> getList()
+}
+
+class BookEntity {
+    - String title
+    + String getTitle()
+    + void setTitle(String title)
+}
+
+BookService --> BookDao
+BookDao --> BookEntity
+@enduml
